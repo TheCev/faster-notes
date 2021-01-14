@@ -15,16 +15,22 @@ if (!JSON.parse(localStorage.getItem("Notes"))) {
 let main = document.getElementById('main')
 
 main.innerHTML = `<div id="wrapper">
+<h1>FasterNotes</h1>
+	<div id="list-wrapper" >
+	<h2 id="list-title">Notas</h2>
 	<ul id="list">
 
 
 	</ul>
-	<button id="button-add-note" onclick="addNote()">Agregar Nota</button>
+	<button class="button" id="button-add-note" onclick="addNote()">Agregar Nota</button>
+	</div>
 	<div id="main-note">
 	
 	</div>
-	<div id="salida">
-	</div>
+	<footer>
+	<p>Enrique Rodriguez</p>
+	<p>version 1.1.0</p>
+	</footer>
 </div>`
 
 
@@ -59,7 +65,7 @@ function saveNote(){
 
 function showNote(a){
 	mainNote.innerHTML = `<h2 id="note-title">${localNotes[a].title}</h2>
-	<textarea id="note" onfocus="saveContent(${a})">${localNotes[a].content}
+	<textarea id="note" onblur ="cancelSaveContent()" onfocus="saveContent(${a})">${localNotes[a].content}
 	</textarea>`
 	saveNote();
 	
@@ -68,19 +74,26 @@ function showNote(a){
 function showNotes(){
 	listNotes.innerHTML=""
 	for(let i = 0; i < localNotes.length; i++){
-		listNotes.innerHTML += `<li onclick="showNote(${i})">${localNotes[i].title}</li>`;
+		listNotes.innerHTML += `<li >${localNotes[i].title}</li> <button class="button" onclick="deleteNote(${i})">eliminar</button><button onclick="showNote(${i})" class="button" >Abrir</button>`;
 	}
 }
+var intervalo;
 
 function saveContent(a){
 	let noteHTML = document.getElementById("note");
-	setInterval(function (){localNotes[a].content = noteHTML.value;
+	intervalo = setInterval(function (){localNotes[a].content = noteHTML.value;
 		saveNote()},100);
 
 }
-
-function addMainNote(a){
-	showa
+function cancelSaveContent(){
+	clearInterval(intervalo);
 }
+
+function deleteNote(a){
+	localNotes.splice(a,1);
+	saveNote();
+}
+
+
 showNotes();
-let venta
+

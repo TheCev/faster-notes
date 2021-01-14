@@ -1,0 +1,123 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+
+	background: #FFDDB2;
+	color: #fff;
+}
+
+#wrapper{
+	display: grid;
+	
+	grid-template-areas: "title title title title "
+	                      "list note note note "
+	                      "list note note note "
+	                      "footer footer footer footer";
+	grid-gap: 10px;
+}
+h1{
+	padding: 15px;
+	font-family: "Open Sans";
+	font-weight: 300;
+	color: #FFAA3D;
+	border-bottom: 3px solid #FFAA3D;
+	grid-area: title;
+	margin: 0px 15px; 
+
+}
+#list-wrapper{
+	grid-area: list;
+	border-right: 3px solid #FFAA3D;
+	display: grid;
+	padding: 15px;
+	grid-template-rows: 40px 1fr 40px;
+	margin-left: 15px;
+	grid-template-areas: "title title"
+	                      "list list"
+	                       "button button";
+	justify-content: center;
+}
+footer{
+	grid-area: footer;
+	border-top:3px solid #FFAA3D;
+	color: #FFAA3D;
+	font-family: "Nunito";
+	font-size: 14px;
+	text-align: center;
+	padding-top: 15px;
+	font-weight: 600;
+	margin: 0px 15px;
+}
+#main-note {
+	grid-area: note;
+}
+
+#list{
+	padding: 15px;
+	grid-area: list;
+}
+li{
+	font-family: "Open Sans";
+	font-weight: 700;
+	color: #FFAA3D;
+	font-size: 16px;
+	margin-bottom: 3px;
+	list-style: none;
+	text-align: center;
+
+
+}
+
+#note-title{
+	font-family: "Nunito";
+	font-weight: 600;
+	font-size: 28px;
+	color: #FFAA3D;
+	text-align: center;
+}
+
+#note{
+	background:transparent;
+	color: #FFAA3D;
+	font-size: 16px;
+	font-family: "Nunito";
+	font-weight: 500;
+	height:250px;
+	width: 90%;
+	margin: 10px 20px; 
+	border-width: 3px;
+	border-color:#FFAA3D;
+	border-style: solid;
+	border-radius: 4px;
+	padding: 10px;
+}
+#note:focus{
+	outline: none;
+
+}
+
+#list-title{
+	grid-area: title;
+	font-family: "Open Sans";
+	font-weight: 700;
+	font-size: 24px;
+	color: #FFAA3D;
+	text-align: center;
+}
+.button{
+	padding: 5px;
+	background: transparent;
+	font-family: "Nunito";
+	font-weight: 600;
+	color: #FFAA3D;
+	border: 2px solid #FFAA3D;
+	border-radius: 4px;
+	margin: 5px 3px;
+
+}
+#button-add-note{
+	grid-area: button;
+}
