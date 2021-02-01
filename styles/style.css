@@ -11,9 +11,9 @@ body{
 
 #wrapper{
 	display: grid;
-	
+	grid-template-rows: 80px 1fr 80px;
+	grid-template-columns: repeat(3,1fr);
 	grid-template-areas: "title title title title "
-	                      "list note note note "
 	                      "list note note note "
 	                      "footer footer footer footer";
 	grid-gap: 10px;
@@ -80,14 +80,15 @@ li{
 }
 
 #note{
+	max-width: 50%;
 	background:transparent;
 	color: #FFAA3D;
 	font-size: 16px;
 	font-family: "Nunito";
 	font-weight: 500;
-	height:250px;
-	width: 90%;
-	margin: 10px 20px; 
+	min-height:250px;
+	display: block;
+	margin: 20px auto; 
 	border-width: 3px;
 	border-color:#FFAA3D;
 	border-style: solid;
@@ -120,4 +121,45 @@ li{
 }
 #button-add-note{
 	grid-area: button;
+}
+
+@media (max-width:900px){
+	.button{
+		font-size: 18px;
+	}
+	#list-title{
+		font-size: 30px;
+	}
+	h1{
+		font-size: 40px;
+	}
+	#wrapper{
+		justify-content: center;
+		grid-template-columns: repeat(3,1fr);
+		grid-template-rows: 80px 1fr auto 80px;
+		grid-template-areas: "title title title"
+							 "note note note"
+							 "list list list"
+							 "footer footer footer";
+
+	}
+	li{
+		font-size: 24px;
+	}
+	#note-title{
+		font-size: 34px;
+	}
+	#note{
+		font-size: 18px;
+	}
+	#list-wrapper{
+		border:3px solid #fff;
+		margin:20px auto;
+	}
+	footer{
+		margin: 0;
+	}
+	h1{
+		margin: 0;
+	}
 }
