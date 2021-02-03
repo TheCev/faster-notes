@@ -74,7 +74,7 @@ function showNote(a){
 function showNotes(){
 	listNotes.innerHTML=""
 	for(let i = 0; i < localNotes.length; i++){
-		listNotes.innerHTML += `<li >${localNotes[i].title}</li> <button class="button" onclick="deleteNote(${i})">eliminar</button><button onclick="showNote(${i})" class="button" >Abrir</button>`;
+		listNotes.innerHTML += `<li >${localNotes[i].title}</li> <button class="button" onclick="deleteNote(${i})">Eliminar</button><button onclick="showNote(${i})" class="button" >Abrir</button>`;
 	}
 }
 var intervalo;
